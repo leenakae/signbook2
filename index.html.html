@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>วันฉัตรมงคล ๒๕๖๙ — ถวายพระพรชัยมงคล</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Cinzel+Decorative:wght@700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8CC78;
+    --gold-pale: #F5E6B8;
+    --gold-dark: #8B6914;
+    --black: #0B0B0B;
+    --black-soft: #151515;
+    --black-mid: #1E1E1E;
+    --white: #FFFFFF;
+    --white-soft: #F7F4EE;
+    --white-muted: #D8D0BC;
+    --gray: #888070;
+  }
+
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: #0B0B0B;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 18px;
+  }
+
+  .page-frame {
+    position: relative;
+    margin: 0 auto;
+    max-width: 860px;
+    background: var(--white);
+    box-shadow: 0 0 0 1px #C9A84C, 0 0 0 5px #0B0B0B, 0 0 0 6px #C9A84C, 0 20px 80px rgba(0,0,0,0.7);
+  }
+
+  .gold-rule { height: 5px; background: linear-gradient(90deg, var(--black), var(--gold), var(--white), var(--gold), var(--black)); }
+  .gold-rule-thin { height: 1.5px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+
+  .hero {
+    background: var(--black);
+    padding: 40px 30px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,168,76,0.07) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201,168,76,0.07) 40px);
+    pointer-events: none;
+  }
+
+  .occasion-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .gold-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px auto;
+    max-width: 460px;
+  }
+  .gold-divider::before, .gold-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .gold-divider span { color: var(--gold); font-size: 16px; }
+
+  .royal-photo-wrap { display: inline-block; margin: 10px auto; position: relative; }
+  .royal-photo-frame {
+    width: 230px;
+    height: 290px;
+    border: 2px solid var(--gold);
+    padding: 5px;
+    background: var(--black-mid);
+    position: relative;
+  }
+  .royal-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 1px solid rgba(201,168,76,0.35);
+  }
+  .royal-photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .royal-photo-frame img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+  }
+  .photo-label {
+    position: absolute;
+    bottom: -1px; left: -2px; right: -2px;
+    background: var(--gold);
+    padding: 6px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--black);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .main-title {
+    font-size: clamp(34px, 6vw, 52px);
+    font-weight: 700;
+    color: var(--gold-light);
+    text-shadow: 0 2px 16px rgba(201,168,76,0.35);
+    letter-spacing: 6px;
+    margin-bottom: 4px;
+  }
+  .main-subtitle {
+    font-size: 14px;
+    color: rgba(201,168,76,0.55);
+    letter-spacing: 7px;
+    font-weight: 300;
+  }
+  .king-name {
+    font-size: 16px;
+    color: var(--white-muted);
+    line-height: 2;
+    margin: 12px 0 8px;
+    font-weight: 300;
+  }
+  .date-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    padding: 5px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+  }
+
+  .prayer-section {
+    background: var(--white);
+    padding: 34px 48px;
+  }
+  .section-label {
+    text-align: center;
+    color: var(--black);
+    font-size: 15px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .prayer-box {
+    background: var(--white-soft);
+    border-top: 3px solid var(--gold);
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding: 28px 32px;
+    position: relative;
+    margin-top: 16px;
+  }
+  .prayer-box::before {
+    content: '\275D';
+    position: absolute;
+    top: -20px; left: 24px;
+    font-size: 44px;
+    color: var(--gold);
+    line-height: 1;
+    background: var(--white);
+    padding: 0 8px;
+  }
+  .prayer-text {
+    color: var(--black-soft);
+    font-size: 18px;
+    line-height: 2.3;
+    text-align: justify;
+    font-weight: 400;
+  }
+  .prayer-text strong { color: var(--black); font-weight: 700; }
+
+  .signature-section {
+    background: var(--black-soft);
+    padding: 30px 48px 36px;
+  }
+  .sig-label {
+    text-align: center;
+    color: var(--gold);
+    font-size: 15px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .sig-box {
+    background: var(--black-mid);
+    border: 1px solid rgba(201,168,76,0.25);
+    margin-top: 16px;
+  }
+  .sig-form {
+    padding: 24px 24px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .sig-form .full-width { grid-column: 1 / -1; }
+
+  .field-label {
+    display: block;
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .field-input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.5);
+    padding: 11px 14px;
+    color: var(--white-soft);
+    font-family: 'Sarabun', sans-serif;
+    font-size: 17px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .field-input:focus { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+  .field-input::placeholder { color: rgba(201,168,76,0.25); font-size: 15px; }
+  textarea.field-input { resize: vertical; min-height: 100px; line-height: 1.9; }
+
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 17px;
+    margin-top: 20px;
+    background: var(--gold);
+    border: none;
+    cursor: pointer;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: 3px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .submit-btn:hover { background: var(--gold-light); }
+  .submit-btn:active { transform: scale(0.99); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .entries-section {
+    background: var(--white);
+    padding: 28px 48px 36px;
+  }
+  .counter {
+    text-align: center;
+    color: var(--gray);
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 6px;
+  }
+  .entries-list::-webkit-scrollbar { width: 3px; }
+  .entries-list::-webkit-scrollbar-track { background: #eee; }
+  .entries-list::-webkit-scrollbar-thumb { background: var(--gold); }
+
+  .entry-card {
+    background: var(--white-soft);
+    border-left: 3px solid var(--gold);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 15px 18px;
+    animation: fadeIn 0.35s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .entry-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+  .entry-name { color: var(--black); font-weight: 700; font-size: 16px; }
+  .entry-dept { color: var(--gray); font-size: 14px; margin-top: 2px; }
+  .entry-time { color: var(--gray); font-size: 13px; white-space: nowrap; }
+  .entry-msg { color: #333; font-size: 16px; line-height: 1.85; font-weight: 400; }
+
+  .loading-indicator {
+    text-align: center;
+    color: var(--gray);
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 20px;
+  }
+
+  .toast {
+    position: fixed;
+    top: 20px; left: 50%;
+    transform: translateX(-50%) translateY(-80px);
+    background: var(--black);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 12px 30px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 999;
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  .royal-footer {
+    background: var(--black);
+    text-align: center;
+    padding: 20px 20px 26px;
+  }
+  .footer-symbol { color: var(--gold); font-size: 24px; letter-spacing: 10px; margin-bottom: 10px; }
+  .footer-text { color: rgba(201,168,76,0.45); font-size: 13px; letter-spacing: 4px; }
+
+  @media (max-width: 600px) {
+    .prayer-section, .signature-section, .entries-section { padding-left: 20px; padding-right: 20px; }
+    .sig-form { grid-template-columns: 1fr; }
+    .sig-form .full-width { grid-column: 1; }
+    .royal-photo-frame { width: 180px; height: 230px; }
+    .prayer-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast">✦ ลงนามถวายพระพรสำเร็จ ✦</div>
+
+<div class="page-frame">
+  <div class="gold-rule"></div>
+
+  <div class="hero">
+    <div class="occasion-badge">วันฉัตรมงคล ๔ พฤษภาคม ๒๕๖๙</div>
+    <div class="gold-divider"><span>✦</span></div>
+
+    <div class="royal-photo-wrap">
+      <div class="royal-photo-frame">
+        <img src="https://lh3.googleusercontent.com/d/1cqY5iQotIiSo5GJMtGD6OmBa9D8XSc7s" alt="พระบรมฉายาลักษณ์">
+        <div class="photo-label">พระบรมฉายาลักษณ์</div>
+      </div>
+    </div>
+
+    <div class="gold-divider"><span>◆</span></div>
+    <div class="main-title">ทรงพระเจริญ</div>
+    <div class="main-subtitle">LONG LIVE THE KING</div>
+    <div class="gold-divider"><span>✦</span></div>
+
+    <p class="king-name">
+      พระบาทสมเด็จพระปรเมนทรรามาธิบดีศรีสินทรมหาวชิราลงกรณ<br>
+      พระวชิรเกล้าเจ้าอยู่หัว
+    </p>
+    <div class="date-pill">๔ พฤษภาคม พ.ศ. ๒๕๖๙ — วันฉัตรมงคล</div>
+  </div>
+
+  <div class="gold-rule-thin"></div>
+
+  <div class="prayer-section">
+    <div class="gold-divider"><span>❋</span></div>
+    <div class="section-label">คำถวายพระพรชัยมงคล</div>
+    <div class="gold-divider"><span>❋</span></div>
+    <div class="prayer-box">
+      <p class="prayer-text">
+        ควรมิควรแล้วแต่จะทรงพระกรุณาโปรดเกล้าโปรดกระหม่อม
+        <br><br>
+        ข้าพระพุทธเจ้า ผู้บริหาร ข้าราชการ และเจ้าหน้าที่
+        สำนักงานการปฏิรูปที่ดินจังหวัดนราธิวาส
+        <br>น้อมสำนึกในพระมหากรุณาธิคุณ
+        <br><br>
+        เนื่องในอภิลักขิตสมัยวันฉัตรมงคลเวียนมาบรรจบอีกวาระหนึ่ง ข้าพระพุทธเจ้าทั้งหลาย
+        <br>ขอพระราชทานถวายพระพรชัยมงคล ขออัญเชิญพลานุภาพแห่งคุณพระศรีรัตนตรัย
+        <br>และอำนาจสิ่งศักดิ์สิทธิ์ทั้งหลายในสากลโลก โปรดดลบันดาลประทานพรให้ใต้ฝ่าละอองธุลีพระบาท
+        <br>ทรงพระเจริญ พระชนมายุยิ่งยืนนาน ทรงพระเกษมสำราญ พระบารมีแผ่ไพศาลไปทั่วทิศานุทิศ
+        <br>สถิตเป็นมิ่งขวัญร่มเกล้าของเหล่าพสกนิกรตราบกาลนิรันดร
+        <br><br>
+        <strong>ด้วยเกล้าด้วยกระหม่อม ขอเดชะ</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="gold-rule-thin"></div>
+
+  <div class="signature-section">
+    <div class="gold-divider"><span>❋</span></div>
+    <div class="sig-label">สมุดลงนามถวายพระพรชัยมงคลอิเล็กทรอนิกส์</div>
+    <div class="gold-divider"><span>❋</span></div>
+
+    <div class="sig-box">
+      <div class="sig-form">
+        <div>
+          <label class="field-label">ชื่อ - นามสกุล *</label>
+          <input class="field-input" type="text" id="f-name" placeholder="กรุณาระบุชื่อ-นามสกุล">
+        </div>
+        <div>
+          <label class="field-label">ตำแหน่ง</label>
+          <input class="field-input" type="text" id="f-position" placeholder="ตำแหน่งงาน">
+        </div>
+        <div class="full-width">
+          <label class="field-label">หน่วยงาน / สังกัด</label>
+          <input class="field-input" type="text" id="f-dept" placeholder="ชื่อหน่วยงานหรือกอง">
+        </div>
+        <div class="full-width">
+          <label class="field-label">คำถวายพระพร / ข้อความ *</label>
+          <textarea class="field-input" id="f-msg" placeholder="กรุณาเขียนคำถวายพระพรชัยมงคลหรือข้อความด้วยใจภักดิ์..."></textarea>
+        </div>
+      </div>
+      <button class="submit-btn" id="submit-btn" onclick="handleSubmit()">✦ ลงนามถวายพระพร ✦</button>
+    </div>
+  </div>
+
+  <div class="gold-rule-thin"></div>
+
+  <div class="entries-section">
+    <div class="gold-divider"><span>❋</span></div>
+    <div class="counter">ผู้ร่วมลงนามแล้ว <span id="count">0</span> ราย</div>
+    <div class="entries-list" id="entries-list">
+      <div class="loading-indicator">กำลังโหลดรายชื่อ...</div>
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <div class="royal-footer">
+    <div class="footer-symbol">✦ ◆ ✦</div>
+    <div class="footer-text">ทรงพระเจริญยิ่งยืนนาน &nbsp;·&nbsp; LONG LIVE HIS MAJESTY THE KING</div>
+  </div>
+</div>
+
+<script>
+  // =========================================================
+  // ⚠️ แก้ไขบรรทัดนี้บรรทัดเดียว: วาง URL จาก Apps Script
+  // =========================================================
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx-3eyIGeFXdsuO1dLGACXknO3bDStAfbQVt_Ua4diQAT7DDAKmi-NTEx_AUmJu0nnC/exec';
+  // =========================================================
+
+  // โหลดรายชื่อด้วย JSONP เพื่อหลีกเลี่ยง CORS
+  function loadEntries() {
+    const old = document.getElementById('jsonp-script');
+    if (old) old.remove();
+    const script = document.createElement('script');
+    script.id = 'jsonp-script';
+    script.src = APPS_SCRIPT_URL + '?callback=jsonpCallback&t=' + Date.now();
+    script.onerror = function() {
+      document.getElementById('entries-list').innerHTML =
+        '<div class="loading-indicator">ไม่สามารถโหลดรายชื่อได้ — กรุณาตรวจสอบ APPS_SCRIPT_URL</div>';
+    };
+    document.body.appendChild(script);
+  }
+
+  function jsonpCallback(data) {
+    renderEntries(data.entries || []);
+  }
+
+  function submitCallback(data) {
+    const btn = document.getElementById('submit-btn');
+    document.getElementById('f-name').value     = '';
+    document.getElementById('f-position').value = '';
+    document.getElementById('f-dept').value     = '';
+    document.getElementById('f-msg').value      = '';
+    btn.disabled = false;
+    btn.textContent = '✦ ลงนามถวายพระพร ✦';
+    showToast();
+    setTimeout(loadEntries, 1200);
+  }
+
+  function handleSubmit() {
+    const name     = document.getElementById('f-name').value.trim();
+    const position = document.getElementById('f-position').value.trim();
+    const dept     = document.getElementById('f-dept').value.trim();
+    const msg      = document.getElementById('f-msg').value.trim();
+
+    if (!name) { document.getElementById('f-name').focus(); return; }
+    if (!msg)  { document.getElementById('f-msg').focus();  return; }
+
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = '⏳ กำลังบันทึก...';
+
+    // ส่งข้อมูลผ่าน JSONP (GET) เพื่อหลีกเลี่ยง CORS
+    const old = document.getElementById('jsonp-submit');
+    if (old) old.remove();
+    const params = new URLSearchParams({ action:'add', name, position, dept, msg, callback:'submitCallback', t: Date.now() });
+    const script = document.createElement('script');
+    script.id = 'jsonp-submit';
+    script.src = APPS_SCRIPT_URL + '?' + params.toString();
+    script.onerror = function() {
+      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+      btn.disabled = false;
+      btn.textContent = '✦ ลงนามถวายพระพร ✦';
+    };
+    document.body.appendChild(script);
+  }
+
+  function renderEntries(entries) {
+    const list = document.getElementById('entries-list');
+    document.getElementById('count').textContent = entries.length;
+
+    if (entries.length === 0) {
+      list.innerHTML = '<div class="loading-indicator">ยังไม่มีผู้ลงนาม — เป็นคนแรกได้เลย</div>';
+      return;
+    }
+
+    list.innerHTML = entries.map(e => `
+      <div class="entry-card">
+        <div class="entry-header">
+          <div>
+            <div class="entry-name">${esc(e.name)}${e.position ? ' — ' + esc(e.position) : ''}</div>
+            ${e.dept ? '<div class="entry-dept">' + esc(e.dept) + '</div>' : ''}
+          </div>
+          <div class="entry-time">${e.timestamp}</div>
+        </div>
+        <div class="entry-msg">${esc(e.msg)}</div>
+      </div>
+    `).join('');
+  }
+
+  function esc(s) {
+    return String(s || '')
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  loadEntries();
+</script>
+</body>
+</html>
